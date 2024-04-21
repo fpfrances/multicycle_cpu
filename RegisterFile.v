@@ -7,7 +7,6 @@ A 2-d register array with two read ports
 and one write port
 */
 
-
 module  RegisterFile(
     input [4:0] read_address_0,
     input [4:0] read_address_1,
