@@ -23,10 +23,8 @@ module  DataMemory(
     // contains 0, 1, 2 respectively. 
     initial begin
         for(i = 0; i < 256; i = i + 1) begin
-         ram[i] = 0;
+         ram[i] = i;
         end
-        ram[0] = 5;
-        ram[1] = 3;
     end
         
     always @* begin

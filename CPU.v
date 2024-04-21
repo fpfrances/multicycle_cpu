@@ -38,16 +38,16 @@ module CPU(
     reg [31:0] alu_result;
     reg write_enable_reg;
     reg write_en_memory;
-    reg [31:0] testdata;
+    reg [31:0] mem_stage;
     
     assign u_InstructionMemory.inst_address = pc_q; 
     assign u_decoder.inst = instruction_q; 
-    // assign u_ALU.ip_0 = reg_addr_0;
-    // assign u_ALU.ip_1 = reg_addr_1; 
-    // assign u_ALU.opcode = opcode; 
+    assign u_Alu.ip_0 = reg_addr_0;
+    assign u_Alu.ip_1 = reg_addr_1; 
+    assign u_Alu.opcode = opcode; 
     assign u_RegisterFile.write_address_0 = reg_addr_0;
     assign u_RegisterFile.read_data_0 = reg_addr_0; 
-    assign u_RegisterFile.write_data = alu_result; 
+    assign u_RegisterFile.write_data = alu_result;
     assign u_RegisterFile.write_en = write_enable_reg;
     assign u_DataMemory.data_address = addr;
     assign u_DataMemory.write_en = write_en_memory;
@@ -57,7 +57,6 @@ module CPU(
     begin
         if(state_q == 0) begin 
             // Fetch Stage
-            testdata = u_RegisterFile.read_data_0;
             write_en_memory = 0;
             write_enable_reg = 0;
             instruction_q = u_InstructionMemory.read_data; // Read instruction from instruction memory
@@ -76,16 +75,22 @@ module CPU(
         end else if(state_q == 2) begin  
             // Execute Stage        
             // Perform ALU operations
+            if (opcode == ( 3'b010 || 3'b011 || 3'b100 || 3'b101 || 3'b110 || 3'b111)) begin
+            alu_result = u_Alu.op_0;
+            end
+            if (u_Alu.change_pc) begin
+                pc_q = addr;
+            end
             state_q <= 3; //update state
         end else if(state_q == 3) begin  
             // Memory Stage
             // Access Memory and register file(for load)
             if (opcode == 0) begin
-                alu_result = u_DataMemory.read_data;
+                mem_stage = u_DataMemory.read_data;
                 write_enable_reg = 1;
             end 
             if (opcode == 1) begin
-                alu_result = u_RegisterFile.read_data_0;
+                mem_stage = u_RegisterFile.read_data_0;
                 write_en_memory = 1;
            end
            state_q <= 0;

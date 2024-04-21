@@ -15,9 +15,8 @@ module  InstructionMemory(
         // Initialize Instructions in the memory for testing
     initial begin
        for (i = 0; i < 256; i = i + 1) begin
-        ram[i] = 0;
+        ram[i] = i;
       end
-      ram[0] = 32'b00100000000000000000000000000000;
     end
     
     // Assign statement to read ram based on inst_address
