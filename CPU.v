@@ -16,10 +16,6 @@ Top Module for CPU.
 module CPU(
     input clk
     );
-    
-    //reg clk = 0;
-    
-   // always #10 clk=~clk;
          
     reg [15:0] pc_q = 0;      // Program Counter
     reg [31:0] instruction_q; // Holds instruction binary 
@@ -40,19 +36,17 @@ module CPU(
     reg write_enable_reg;
     reg write_en_memory;
     reg [31:0] mem_stage;
-    
+
     assign u_InstructionMemory.inst_address = pc_q; 
     assign u_decoder.inst = instruction_q; 
     assign u_Alu.ip_0 = reg_addr_0;
     assign u_Alu.ip_1 = reg_addr_1; 
     assign u_Alu.opcode = opcode; 
     assign u_RegisterFile.write_address_0 = reg_addr_0;
-    assign u_RegisterFile.read_data_0 = reg_addr_0; 
     assign u_RegisterFile.write_data = alu_result;
     assign u_RegisterFile.write_en = write_enable_reg;
     assign u_DataMemory.data_address = addr;
     assign u_DataMemory.write_en = write_en_memory;
-    assign u_RegisterFile.read_address_0 = reg_addr_0;
   
     always@(posedge clk)
     begin
@@ -76,11 +70,11 @@ module CPU(
         end else if(state_q == 2) begin  
             // Execute Stage        
             // Perform ALU operations
-            if (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101 || opcode == 3'b110 || opcode == 3'b111) begin
-            alu_result <= u_Alu.op_0;
-            end
-            if (u_Alu.change_pc) begin
-                pc_q <= addr;
+            if (opcode == 3'b100 || opcode == 3'b101 || opcode == 3'b110 || opcode == 3'b111) begin
+                alu_result <= u_Alu.op_0;
+         end
+            if (opcode == 3'b010 || opcode == 3'b011) begin
+                pc_q <= u_Alu.change_pc;
             end
             state_q <= 3; //update state
         end else if(state_q == 3) begin  
@@ -91,8 +85,9 @@ module CPU(
                 write_enable_reg <= 1;
             end 
             if (opcode == 1) begin
-                mem_stage <= u_RegisterFile.read_data_0;
-                write_en_memory <= 1;
+                mem_stage = u_RegisterFile.read_data_0;
+                #10;
+                write_en_memory = 1;
            end
            state_q <= 0;
        end  

@@ -30,8 +30,9 @@ module ALU(
     //  when the instruction is "beq" or ip_0 < ip_1 when 
     // instruction is "blt", the change_pc goes high 
     
-    assign change_pc = opcode == 2 ? (ip_0 == ip_1):
-                      (opcode == 3 ? (ip_0 < ip_1) : 0);
+    assign change_pc = opcode == 2 ? (ip_0 == ip_1): // beq
+                      (opcode == 3 ? (ip_0 < ip_1) : // blt
+                       0);
     
     
 endmodule

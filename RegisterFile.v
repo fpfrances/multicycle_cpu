@@ -23,7 +23,7 @@ module  RegisterFile(
     // Initialize the entire ram to zero
     initial begin
         for(i = 0; i < 256; i = i + 1) begin
-            ram[i] = 32'b0;
+            ram[i] = i;
         end
     end
 
