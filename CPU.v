@@ -14,11 +14,12 @@ Top Module for CPU.
 `include "RegisterFile.v"
 
 module CPU(
+    input clk
     );
     
-    reg clk = 0;
+    //reg clk = 0;
     
-    always #10 clk=~clk;
+   // always #10 clk=~clk;
          
     reg [15:0] pc_q = 0;      // Program Counter
     reg [31:0] instruction_q; // Holds instruction binary 
@@ -57,41 +58,41 @@ module CPU(
     begin
         if(state_q == 0) begin 
             // Fetch Stage
-            write_en_memory = 0;
-            write_enable_reg = 0;
-            instruction_q = u_InstructionMemory.read_data; // Read instruction from instruction memory
-            pc_q = pc_q + 1;// increment PC
-            state_q = state_q + 1;// increment state
+            write_en_memory <= 0;
+            write_enable_reg <= 0;
+            instruction_q <= u_InstructionMemory.read_data; // Read instruction from instruction memory
+            pc_q <= pc_q + 1;// increment PC
+            state_q <= state_q + 1;// increment state
         end else if(state_q == 1) begin  
             // Decode Stage
             // Instruction Decode and read data from register/memory
             // store all data necessary for next stages in a register
-            opcode = u_decoder.opcode;  
-            reg_addr_0 = u_decoder.reg_addr_0;
-	        reg_addr_1 = u_decoder.reg_addr_1;
-	        reg_addr_2 = u_decoder.reg_addr_2;
-	        addr = u_decoder.addr;
+            opcode <= u_decoder.opcode;  
+            reg_addr_0 <= u_decoder.reg_addr_0;
+	        reg_addr_1 <= u_decoder.reg_addr_1;
+	        reg_addr_2 <= u_decoder.reg_addr_2;
+	        addr <= u_decoder.addr;
             state_q <= 2;  //update state
         end else if(state_q == 2) begin  
             // Execute Stage        
             // Perform ALU operations
-            if (opcode == ( 3'b010 || 3'b011 || 3'b100 || 3'b101 || 3'b110 || 3'b111)) begin
-            alu_result = u_Alu.op_0;
+            if (opcode == 3'b010 || opcode == 3'b011 || opcode == 3'b100 || opcode == 3'b101 || opcode == 3'b110 || opcode == 3'b111) begin
+            alu_result <= u_Alu.op_0;
             end
             if (u_Alu.change_pc) begin
-                pc_q = addr;
+                pc_q <= addr;
             end
             state_q <= 3; //update state
         end else if(state_q == 3) begin  
             // Memory Stage
             // Access Memory and register file(for load)
             if (opcode == 0) begin
-                mem_stage = u_DataMemory.read_data;
-                write_enable_reg = 1;
+                mem_stage <= u_DataMemory.read_data;
+                write_enable_reg <= 1;
             end 
             if (opcode == 1) begin
-                mem_stage = u_RegisterFile.read_data_0;
-                write_en_memory = 1;
+                mem_stage <= u_RegisterFile.read_data_0;
+                write_en_memory <= 1;
            end
            state_q <= 0;
        end  

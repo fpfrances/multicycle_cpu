@@ -10,7 +10,7 @@ and one write port
 module  RegisterFile(
     input [4:0] read_address_0,
     input [4:0] read_address_1,
-    input [4:0] write_address_0,
+    input [15:0] write_address_0,
     input write_en,
     input [31:0] write_data,
     output [31:0] read_data_0,
@@ -38,7 +38,7 @@ module  RegisterFile(
         if(write_en) begin
             // When write_en is high write the write_data 
             // to the ram based on address write_address_0
-            ram[write_address_0] = write_data;
+            ram[write_address_0] <= write_data;
         end
     end
     

@@ -12,7 +12,7 @@ module  InstructionMemory(
     integer i;
     reg [31:0] ram [255:0];
     
-        // Initialize Instructions in the memory for testing
+    // Initialize Instructions in the memory for testing
     initial begin
        for (i = 0; i < 256; i = i + 1) begin
         ram[i] = i;
