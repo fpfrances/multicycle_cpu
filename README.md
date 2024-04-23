@@ -7,18 +7,18 @@
 The CPU can execute the following instructions:
 
 ## Memory Instructions:
-- 'lw': Transfer a 32-bit value from memory to a register.
--'sw': Write a 32-bit value from a register to memory.
+- `lw`: Transfer a 32-bit value from memory to a register.
+- `sw`: Write a 32-bit value from a register to memory.
 
 ## Control Instructions:
-- 'beq': Branch when two register values are equal.
-- 'blt': Branch if one register's value is less than another.
+- `beq`: Branch when two register values are equal.
+- `blt`: Branch if one register's value is less than another.
 
 ## Arithmetic Instructions:
-- 'add': Perform the addition operation.
--'sub': Perform a subtraction operation.
-- 'and': Perform the bitwise AND operation.
-- 'or': Perform the bitwise OR operation.
+- `add`: Perform the addition operation.
+- `sub`: Perform a subtraction operation.
+- `and`: Perform the bitwise AND operation.
+- `or`: Perform the bitwise OR operation.
 
 
 *** CPU components:
