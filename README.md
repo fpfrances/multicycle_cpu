@@ -21,7 +21,7 @@ The CPU can execute the following instructions:
 - `or`: Perform the bitwise OR operation.
 
 
-*** CPU components:
+# CPU components:
 The CPU consists of several Verilog modules:
 
 ** Memory: Uses a 256x32 bit single read/write port RAM.
