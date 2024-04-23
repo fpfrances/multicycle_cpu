@@ -44,15 +44,25 @@ The CPU consists of several Verilog modules:
 `InstructionMemory.v`: Verilog module for the instruction memory component.
 
 `DataMemory.v`: Verilog module for the data memory component.
+
 `Decoder.v`: Verilog module for the decoder component.
+
 `RegisterFile.v`: Verilog module for the register file component.
+
 `ALU.v`: Verilog module for the ALU component.
+
 `top_tb.v`: Top-level testbench for the entire CPU.
+
 `InstMem_tb.v`: Testbench for the instruction memory component.
+
 `DataMem_tb.v`: Testbench for the data memory component.
+
 `Decoder_tb.v`: Testbench for the decoder component.
+
 `Register_tb.v`: Testbench for the register file component.
+
 `ALU_tb.v`: Testbench for the ALU component.
+
 `README.md`: This file.
 
 
