@@ -2,7 +2,6 @@
 
 ### Project Description: Implement a simplified multi-cycle CPU with Verilog/SystemVerilog. The CPU is intended to execute arithmetic, memory, and control-related instructions, providing hands-on experience with a critical component of modern computer systems.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Instruction Set Architecture:
 The CPU can execute the following instructions:
