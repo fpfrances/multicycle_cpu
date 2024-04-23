@@ -17,7 +17,7 @@ module CPU(
     input clk
     );
          
-    reg [15:0] pc_q = 0;      // Program Counter
+    reg [7:0] pc_q = 0;      // Program Counter
     reg [31:0] instruction_q; // Holds instruction binary 
     reg [1:0] state_q = 0;   // State of CPU
  
