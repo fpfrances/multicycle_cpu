@@ -20,7 +20,6 @@ The CPU can execute the following instructions:
 - 'and': Perform the bitwise AND operation.
 - 'or': Perform the bitwise OR operation.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *** CPU components:
 The CPU consists of several Verilog modules:
@@ -30,7 +29,6 @@ The CPU consists of several Verilog modules:
 ** Decoder: Uses Instruction Set Architecture to break down instructions into signals.
 ** ALU (Arithmetic Logic Unit): Performs arithmetic operations using opcodes.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## CPU Execution Stages: The CPU processes instructions in four stages:
 
@@ -39,11 +37,9 @@ The CPU consists of several Verilog modules:
 3. Execute: Performs arithmetic operations and updates the register file. Changes the program counter to reflect branch operations.
 4. Memory: Loads or stores data from register files and memory.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Testing Plan: Testbenches are available for each CPU component and the entire processor. These testbenches thoroughly validate the functionality of each component and the entire CPU, ensuring that all instructions are executed correctly.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Files Included:
 `CPU.v`: Verilog module for the CPU top-level design.
@@ -60,14 +56,12 @@ The CPU consists of several Verilog modules:
 `ALU_tb.v`: Testbench for the ALU component.
 `README.md`: This file.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Usage:
 1. Simulate the CPU components using their respective testbenches to ensure individual functionality.
 2. Simulate the entire CPU using the provided testbench for comprehensive testing of all instructions and execution stages.
 3. Verify the waveform outputs to confirm correct behavior and performance.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Contributors:
 - Filipe Pestana Frances
