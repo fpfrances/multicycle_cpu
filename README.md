@@ -40,7 +40,9 @@ The CPU consists of several Verilog modules:
 
 ## Files Included:
 `CPU.v`: Verilog module for the CPU top-level design.
+
 `InstructionMemory.v`: Verilog module for the instruction memory component.
+
 `DataMemory.v`: Verilog module for the data memory component.
 `Decoder.v`: Verilog module for the decoder component.
 `RegisterFile.v`: Verilog module for the register file component.
