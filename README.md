@@ -38,9 +38,6 @@ The CPU consists of several Verilog modules:
 4. Memory: Loads or stores data from register files and memory.
 
 
-## Testing Plan: Testbenches are available for each CPU component and the entire processor. These testbenches thoroughly validate the functionality of each component and the entire CPU, ensuring that all instructions are executed correctly.
-
-
 ## Files Included:
 `CPU.v`: Verilog module for the CPU top-level design.
 `InstructionMemory.v`: Verilog module for the instruction memory component.
@@ -64,4 +61,4 @@ The CPU consists of several Verilog modules:
 
 
 ## Contributors:
-- Filipe Pestana Frances
+`Filipe Pestana Frances`
