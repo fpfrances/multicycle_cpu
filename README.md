@@ -22,10 +22,10 @@ The CPU can execute the following instructions:
 
 ### CPU components:
 The CPU consists of several Verilog modules:
-** Memory: Uses a 256x32 bit single read/write port RAM.
-** The Register File uses a 16x32 bit dual read/single write port RAM.
-** Decoder: Uses Instruction Set Architecture to break down instructions into signals.
-** ALU (Arithmetic Logic Unit): Performs arithmetic operations using opcodes.
+Memory: Uses a 256x32 bit single read/write port RAM.
+The Register File uses a 16x32 bit dual read/single write port RAM.
+Decoder: Uses Instruction Set Architecture to break down instructions into signals.
+ALU (Arithmetic Logic Unit): Performs arithmetic operations using opcodes.
 
 
 ### CPU Execution Stages:
