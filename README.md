@@ -5,15 +5,15 @@
 ### Instruction Set Architecture:
 The CPU can execute the following instructions:
 
-### Memory Instructions:
+1. Memory Instructions:
 - `lw`: Transfer a 32-bit value from memory to a register.
 - `sw`: Write a 32-bit value from a register to memory.
 
-### Control Instructions:
+2. Control Instructions:
 - `beq`: Branch when two register values are equal.
 - `blt`: Branch if one register's value is less than another.
 
-### Arithmetic Instructions:
+3. Arithmetic Instructions:
 - `add`: Perform the addition operation.
 - `sub`: Perform a subtraction operation.
 - `and`: Perform the bitwise AND operation.
