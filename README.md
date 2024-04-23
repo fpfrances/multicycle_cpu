@@ -3,6 +3,7 @@
 ### Project Description: Implement a simplified multi-cycle CPU with Verilog/SystemVerilog. The CPU is intended to execute arithmetic, memory, and control-related instructions, providing hands-on experience with a critical component of modern computer systems.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Instruction Set Architecture:
 The CPU can execute the following instructions:
 
@@ -21,6 +22,7 @@ The CPU can execute the following instructions:
 - 'or': Perform the bitwise OR operation.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 *** CPU components:
 The CPU consists of several Verilog modules:
 
@@ -30,6 +32,7 @@ The CPU consists of several Verilog modules:
 ** ALU (Arithmetic Logic Unit): Performs arithmetic operations using opcodes.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## CPU Execution Stages: The CPU processes instructions in four stages:
 
 1. Fetch: Reads a new instruction from memory and increments program counter.
@@ -38,9 +41,11 @@ The CPU consists of several Verilog modules:
 4. Memory: Loads or stores data from register files and memory.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Testing Plan: Testbenches are available for each CPU component and the entire processor. These testbenches thoroughly validate the functionality of each component and the entire CPU, ensuring that all instructions are executed correctly.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Files Included:
 `CPU.v`: Verilog module for the CPU top-level design.
 `InstructionMemory.v`: Verilog module for the instruction memory component.
@@ -57,11 +62,13 @@ The CPU consists of several Verilog modules:
 `README.md`: This file.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Usage:
 1. Simulate the CPU components using their respective testbenches to ensure individual functionality.
 2. Simulate the entire CPU using the provided testbench for comprehensive testing of all instructions and execution stages.
 3. Verify the waveform outputs to confirm correct behavior and performance.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## Contributors:
 - Filipe Pestana Frances
