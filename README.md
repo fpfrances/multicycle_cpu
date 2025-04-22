@@ -70,5 +70,12 @@ The CPU processes instructions in four stages:
 3. Verify the waveform outputs to confirm correct behavior and performance.
 
 
+## Simulation
+
+You can run and interact with the multicycle CPU design directly on EDA Playground:
+
+👉 [Multicycle CPU on EDA Playground](https://www.edaplayground.com/x/J8xj)
+
+
 ### Contributors:
 `Filipe Pestana Frances`
